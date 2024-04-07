@@ -89,6 +89,8 @@ print(divs)
 for div in divs:
     for flag in re.findall('flag-[0-9]+', div.text):
         flags.add(flag)
+        
+driver.quit()
 
 # Print flags in order
 sorted_flags = sorted(flags, key=lambda x: int(x.split('-')[1]))
