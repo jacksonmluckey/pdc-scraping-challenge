@@ -1,5 +1,3 @@
-### Hertie PDC Scraping Course 
+### Hertie PDC Web Scraping Challenge
 
-Welcome to the course! You will find here all the resources to follow the course and the exercises.
-
-Good luck!
+Run `ctf.py`. The rest of the repo is materials from https://github.com/dmpierre
