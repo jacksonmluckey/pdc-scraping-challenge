@@ -55,16 +55,18 @@ for script in s.find_all('script'):
     except:
         pass
 
+# Page 3 buttons before clicking
 page3 = "goodjobfindinglevel3"
 req = requests.get(root_url + page3)
 s = BeautifulSoup(req.content, 'html.parser')
-
 for button in s.find_all('button', id = flag_text):
     flags.add(button['id'])
 
 options = webdriver.FirefoxOptions()
 options.binary_location = "~/Downloads/geckodriver"
 driver = webdriver.Firefox()
+
+# Page 3 buttons after clicking
 driver.get(root_url + page3)
 buttons = driver.find_elements(By.XPATH, "//button")
 for button in buttons:
@@ -76,6 +78,7 @@ buttons = driver.find_elements(By.XPATH, "//button")
 for button in buttons:
     flags.add(button.text)
 
+# Page 4 uses a hidden input field
 page4 = "finalboss"
 driver.get(root_url + page4)
 input_element = driver.find_element(By.CSS_SELECTOR, 'input[type="text"]')
@@ -87,7 +90,7 @@ for div in divs:
     for flag in re.findall('flag-[0-9]+', div.text):
         flags.add(flag)
 
-
+# Print flags in order
 sorted_flags = sorted(flags, key=lambda x: int(x.split('-')[1]))
 for flag in sorted_flags:
     print(flag)
