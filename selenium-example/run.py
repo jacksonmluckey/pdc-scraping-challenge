@@ -27,8 +27,8 @@ def parse_a_tag(a_tag):
 if __name__ == "__main__":
 
     # Initiate browser, navigate to page and wait for JS to load properly
-    # options = webdriver.FirefoxOptions()
-    # options.binary_location = "/Users/pierredm/Downloads/geckodriver"
+    options = webdriver.FirefoxOptions()
+    options.binary_location = "~/Downloads/geckodriver"
     driver = webdriver.Firefox()
     driver.get("https://www.quirinale.it/ricerca/comunicati")
     time.sleep(5)
